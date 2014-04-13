@@ -1,6 +1,6 @@
 <?php
 
-class CASE {
+class Item {
 
 	public function doWork() {
 		return true;
@@ -8,7 +8,7 @@ class CASE {
 
 }
 
-$x = new CASE;
-echo get_class($x) . ":\n");
+$x = new Item;
+echo get_class($x) . ":\n";
 	assert($x->doWork() == true);
 print_r(uniqid() . "\n");
