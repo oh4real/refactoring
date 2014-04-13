@@ -1,9 +1,9 @@
 <?php
 
-class Person_Before {
+class Person {
 	private $_department;
 
-	public function setDepartment(Department_Before $val) {
+	public function setDepartment(Department $val) {
 		$this->_department = $val;
 	}
 
@@ -13,11 +13,11 @@ class Person_Before {
 
 }
 
-class Department_Before {
+class Department {
 	private $_chargeCode;
 	private $_manager;
 
-	public function __construct(Person_Before $person) {
+	public function __construct(Person $person) {
 		$this->_manager = $person;
 	}
 
@@ -26,12 +26,12 @@ class Department_Before {
 	}
 }
 
-$classes = array('Person_Before');
-foreach($classes as $class) {
-	$manager = new Person_Before();
-	$department = new Department_Before($manager);
-	$employee = new Person_Before();
+
+echo "Start test...\n";
+	$manager = new Person();
+	$department = new Department($manager);
+	$employee = new Person();
 	$employee->setDepartment($department);
 	print_r(get_class($manager) . ":\n");
-	print_r($employee->getManager() == $manager ? "PASS\n" : "FAIL\n");
-}
+	assert($employee->getManager() == $manager);
+echo "... done\n";

@@ -1,10 +1,10 @@
 <?php
 
-class Person_After {
+class Person {
 	private $_name;
 
 	public function __construct() {
-		$this->_telephoneNumber = new Telephone_After;
+		$this->_telephoneNumber = new Telephone;
 	}
 
 	public function getName() {
@@ -29,7 +29,7 @@ class Person_After {
 	}
 }
 
-class Telephone_After {
+class Telephone {
 	private $_areaCode;
 	private $_number;
 
@@ -51,11 +51,11 @@ class Telephone_After {
 	}
 }
 
-$classes = array('Person_After');
-foreach($classes as $class) {
-	$x = new $class;
+
+echo "Start test...\n";
+	$x = new Person;
 	print_r(get_class($x) . ":\n");
 	$x->setOfficeNumber("555-1212");
 	$x->setOfficeAreaCode("512");
-	print_r($x->getTelephoneNumber() == "(512) 555-1212" ? "PASS\n" : "FAIL\n");
-}
+	assert($x->getTelephoneNumber() == "(512) 555-1212");
+echo "... done\n";

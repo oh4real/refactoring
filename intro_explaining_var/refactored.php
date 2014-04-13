@@ -1,26 +1,6 @@
 <?php
 
-class IntroduceExplainingVar_Before {
-	private $quantity;
-	private $itemPrice;
-
-	public function setQuantity($val) {
-		$this->quantity = $val;
-	}
-
-	public function setItemPrice($val) {
-		$this->itemPrice = $val;
-	}
-
-	public function price() {
-		// price is base price - quantity discount + shipping
-		return $this->quantity * $this->itemPrice -
-			max(0, $this->quantity - 500) * $this->itemPrice * 0.05 +
-			min($this->quantity * $this->itemPrice * 0.1, 100);
-	}
-}
-
-class IntroduceExplainingVar_After {
+class IntroduceExplainingVar {
 	private $quantity;
 	private $itemPrice;
 
@@ -50,15 +30,15 @@ class IntroduceExplainingVar_After {
 	}
 }
 
-$classes = array('IntroduceExplainingVar_Before', 'IntroduceExplainingVar_After');
-foreach ($classes as $class) {
-	$x = new $class;
+
+echo "Start test...\n";
+	$x = new IntroduceExplainingVar;
 	print_r(get_class($x) . ":\n");
 	$x->setQuantity(250);
 	$x->setItemPrice(10);
-	print_r($x->price() == 2600 ? "PASS\n" : "FAIL\n");
+	assert($x->price() == 2600);
 
 	$x->setQuantity(750);
 	$x->setItemPrice(10);
-	print_r($x->price() == 7475 ? "PASS\n" : "FAIL\n");
-}
+	assert($x->price() == 7475);
+echo "... done\n";

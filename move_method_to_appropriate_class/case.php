@@ -1,6 +1,6 @@
 <?php
 
-class Type_Before {
+class Type {
 	private $isPremium;
 	public function __construct($isPremium) {
 		$this->isPremium = (boolean)$isPremium;
@@ -10,11 +10,11 @@ class Type_Before {
 	}
 }
 
-class MoveMethodToAppropriateClass_Before {
+class MoveMethodToAppropriateClass {
 	private $type;
 	private $daysOverdrawn;
 
-	public function __construct(Type_Before $type = null, $daysOverdrawn = 0) {
+	public function __construct(Type $type = null, $daysOverdrawn = 0) {
 		$this->type = $type;
 		$this->daysOverdrawn = $daysOverdrawn;
 	}
@@ -40,24 +40,19 @@ class MoveMethodToAppropriateClass_Before {
 	}
 }
 
-
-$classes = array('MoveMethodToAppropriateClass_Before');
-foreach ($classes as $class) {
-	$y = new Type_Before(true);
-	$x = new $class($y);
+echo "Start test...\n";
+	$y = new Type(true);
+	$x = new MoveMethodToAppropriateClass($y);
 	print_r(get_class($x) . ":\n");
-	print_r($x->bankCharge());
-	print_r($x->bankCharge() == 4.5 ? "PASS\n" : "FAIL\n");
+	assert($x->bankCharge() == 4.5);
 
-	$y = new Type_Before(false);
-	$x = new $class($y, 10);
+	$y = new Type(false);
+	$x = new MoveMethodToAppropriateClass($y, 10);
 	print_r(get_class($x) . ":\n");
-	print_r($x->bankCharge());
-	print_r($x->bankCharge() == 22 ? "PASS\n" : "FAIL\n");
+	assert($x->bankCharge() == 22);
 
-	$y = new Type_Before(true);
-	$x = new $class($y, 10);
+	$y = new Type(true);
+	$x = new MoveMethodToAppropriateClass($y, 10);
 	print_r(get_class($x) . ":\n");
-	print_r($x->bankCharge());
-	print_r($x->bankCharge() == 17.05 ? "PASS\n" : "FAIL\n");
-}
+	assert($x->bankCharge() == 17.05);
+echo "... done\n";

@@ -1,6 +1,6 @@
 <?php
 
-class Person_Before {
+class Person {
 	private $_name;
 	private $_officeAreaCode;
 	private $_officeNumber;
@@ -25,11 +25,11 @@ class Person_Before {
 	}
 }
 
-$classes = array('Person_Before');
-foreach($classes as $class) {
-	$x = new $class;
+
+echo "Start test...\n";
+	$x = new Person;
 	print_r(get_class($x) . ":\n");
 	$x->setOfficeNumber("555-1212");
 	$x->setOfficeAreaCode("512");
-	print_r($x->getTelephoneNumber() == "(512) 555-1212" ? "PASS\n" : "FAIL\n");
-}
+	assert($x->getTelephoneNumber() == "(512) 555-1212");
+echo "... done\n";

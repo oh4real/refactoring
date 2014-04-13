@@ -1,6 +1,6 @@
 <?php
 
-class SplitTempVar_Before {
+class SplitTempVar {
 
 	private $primaryForce = 1;
 	private $secondaryForce = 3;
@@ -25,26 +25,10 @@ class SplitTempVar_Before {
 	}
 }
 
-class SplitTempVar_After {
-
-	private $primaryForce = 1;
-	private $secondaryForce = 3;
-	private $mass = 100;
-	private $delay = 10;
-
-	public function setSecondaryForce($val) {
-		$this->secondaryForce = $val;
-	}
-	public function getDistanceTravelled($time) {
-
-	}
-}
-
-$classes = array('SplitTempVar_Before', 'SplitTempVar_After');
-foreach($classes as $class) {
-	$x = new $class;
+echo "Start test...\n";
+	$x = new SplitTempVar;
 	print_r(get_class($x) . ":\n");
-	print_r($x->getDistanceTravelled(100) == 171.5 ? "PASS\n" : "FAIL\n");
+	assert($x->getDistanceTravelled(100) == 171.5);
 	$x->setSecondaryForce(0);
-	print_r($x->getDistanceTravelled(100) == 50 ? "No Secondary PASS\n" : "No Secondary FAIL\n");
-}
+	assert($x->getDistanceTravelled(100) == 50);
+echo "... done\n";

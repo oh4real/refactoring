@@ -1,6 +1,6 @@
 <?php
 
-class IntroduceExplainingVar_Before {
+class IntroduceExplainingVar {
 	private $quantity;
 	private $itemPrice;
 
@@ -20,32 +20,15 @@ class IntroduceExplainingVar_Before {
 	}
 }
 
-class IntroduceExplainingVar_After {
-	private $quantity;
-	private $itemPrice;
 
-	public function setQuantity($val) {
-		$this->quantity = $val;
-	}
-
-	public function setItemPrice($val) {
-		$this->itemPrice = $val;
-	}
-
-	public function price() {
-		return;
-	}
-}
-
-$classes = array('IntroduceExplainingVar_Before', 'IntroduceExplainingVar_After');
-foreach ($classes as $class) {
-	$x = new $class;
+echo "Start test...\n";
+	$x = new IntroduceExplainingVar;
 	print_r(get_class($x) . ":\n");
 	$x->setQuantity(250);
 	$x->setItemPrice(10);
-	print_r($x->price() == 2600 ? "PASS\n" : "FAIL\n");
+	assert($x->price() == 2600);
 
 	$x->setQuantity(750);
 	$x->setItemPrice(10);
-	print_r($x->price() == 7475 ? "PASS\n" : "FAIL\n");
-}
+	assert($x->price() == 7475);
+echo "... done\n";
