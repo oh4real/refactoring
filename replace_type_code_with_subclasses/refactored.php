@@ -64,14 +64,14 @@ class Manager extends Employee {
 
 echo "Start test...\n";
 	$x = Employee::create(Employee::ENGINEER);
-	assert($x->getPayCode() == 100+Employee::ENGINEER);
-	assert($x->getType() == Employee::ENGINEER);
+	assert(100+Employee::ENGINEER == $x->getPayCode());
+	assert(Employee::ENGINEER == $x->getType());
 
 	$x = Employee::create(Employee::SALESMAN);
-	assert($x->getPayCode() == 200+Employee::SALESMAN);
-	assert($x->getType() == Employee::SALESMAN);
+	assert(200+Employee::SALESMAN == $x->getPayCode());
+	assert(Employee::SALESMAN == $x->getType());
 
 	$x = Employee::create(Employee::MANAGER);
-	assert($x->getPayCode() == 300+Employee::MANAGER);
-	assert($x->getType() == Employee::MANAGER);
+	assert(300+Employee::MANAGER == $x->getPayCode());
+	assert(Employee::MANAGER == $x->getType());
 echo "... done\n";

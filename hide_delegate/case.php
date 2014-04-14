@@ -33,5 +33,5 @@ echo "Start test...\n";
 	$employee = new Person();
 	$employee->setDepartment($department);
 	print_r(get_class($manager) . ":\n");
-	assert($employee->getDepartment()->getManager() == $manager);
+	assert($manager == $employee->getDepartment()->getManager());
 echo "... done\n";

@@ -42,7 +42,7 @@ $orders = array(
 
 
 echo "Start test...\n";
-	assert(Order::numberOfOrdersFor($orders, "diana") == 1);
-	assert(Order::numberOfOrdersFor($orders, "charles") == 1);
-	assert(Order::numberOfOrdersFor($orders, "camilla") == 0);
+	assert(1 == Order::numberOfOrdersFor($orders, "diana"));
+	assert(1 == Order::numberOfOrdersFor($orders, "charles"));
+	assert(0 == Order::numberOfOrdersFor($orders, "camilla"));
 echo "... done\n";

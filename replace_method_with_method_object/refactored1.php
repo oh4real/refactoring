@@ -44,5 +44,5 @@ class GammaMethod {
 echo "Start test...\n";
 	$x = new ReplaceMethodWithMethodObject;
 	print_r(get_class($x) . ":\n");
-	assert($x->gamma(10, 100, 1000) == 98980);
+	assert(98980 == $x->gamma(10, 100, 1000));
 echo "... done\n";

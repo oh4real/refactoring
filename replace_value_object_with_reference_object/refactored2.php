@@ -98,11 +98,11 @@ echo "Start test...\n";
 		$diana   = new Order(Customers::get()->getCustomer("diana"))
 	);
 
-	assert(numberOfOrdersFor($orders, "diana") == 1);
+	assert(1 == numberOfOrdersFor($orders, "diana"));
 	Customers::get()->getCustomer("diana")->setName("camilla");
 
-	assert(numberOfOrdersFor($orders, "diana") == 0);
-	assert(numberOfOrdersFor($orders, "camilla") == 1);
+	assert(0 == numberOfOrdersFor($orders, "diana"));
+	assert(1 == numberOfOrdersFor($orders, "camilla"));
 
 	foreach ($orders as $order) {
 		assert("diana" !== $order->getCustomerName());

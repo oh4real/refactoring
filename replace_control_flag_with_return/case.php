@@ -36,13 +36,13 @@ class ReplaceControlFlagWithBreak {
 echo "Start test...\n";
 	$people = array("Jon", "Stephen", "Samantha", "Jason");
 	ReplaceControlFlagWithBreak::checkSecurity($people);
-	assert(ReplaceControlFlagWithBreak::$foundPerson == null);
+	assert(null == ReplaceControlFlagWithBreak::$foundPerson);
 	$people[] = "Don";
 	ReplaceControlFlagWithBreak::checkSecurity($people);
-	assert(ReplaceControlFlagWithBreak::$foundPerson == "Don");
+	assert("Don" == ReplaceControlFlagWithBreak::$foundPerson);
 
 	// test reveals very fragile code, why?
 	$people[] = "Juan";
 	ReplaceControlFlagWithBreak::checkSecurity($people);
-	assert(ReplaceControlFlagWithBreak::$foundPerson == "Don");
+	assert("Don" == ReplaceControlFlagWithBreak::$foundPerson);
 echo "... done\n";

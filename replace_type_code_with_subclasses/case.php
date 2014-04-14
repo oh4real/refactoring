@@ -29,11 +29,11 @@ class Employee {
 
 echo "Start test...\n";
 	$x = new Employee(Employee::ENGINEER);
-	assert($x->getPayCode() == 100+Employee::ENGINEER);
+	assert(100+Employee::ENGINEER == $x->getPayCode());
 
 	$x = new Employee(Employee::SALESMAN);
-	assert($x->getPayCode() == 200+Employee::SALESMAN);
+	assert(200+Employee::SALESMAN == $x->getPayCode());
 
 	$x = new Employee(Employee::MANAGER);
-	assert($x->getPayCode() == 300+Employee::MANAGER);
+	assert(300+Employee::MANAGER == $x->getPayCode());
 echo "... done\n";

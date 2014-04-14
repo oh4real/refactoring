@@ -70,11 +70,15 @@ class BloodGroup {
 
 echo "Start test...\n";
 	for ($i = 0; $i < 4; $i++) {
-		assert(BloodGroup::code($i)->getCode() == $i);
+		assert($i == BloodGroup::code($i)->getCode());
+		$person = new Person(BloodGroup::code($i));
+		assert($i == $person->getBloodGroup()->getCode());
 	}
+
 	$person = new Person(BloodGroup::code(BloodGroup::A));
 	assert(BloodGroup::code(BloodGroup::A) == $person->getBloodGroupCode());
 
+	// test that bloodgroup really did change
 	$person->setBloodGroup(BloodGroup::code(BloodGroup::AB));
 	assert(BloodGroup::code(BloodGroup::A) != $person->getBloodGroupCode());
 echo "... done\n";

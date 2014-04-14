@@ -43,16 +43,13 @@ class MoveMethodToAppropriateClass {
 echo "Start test...\n";
 	$y = new Type(true);
 	$x = new MoveMethodToAppropriateClass($y);
-	print_r(get_class($x) . ":\n");
-	assert($x->bankCharge() == 4.5);
+	assert(4.5 == $x->bankCharge());
 
 	$y = new Type(false);
 	$x = new MoveMethodToAppropriateClass($y, 10);
-	print_r(get_class($x) . ":\n");
-	assert($x->bankCharge() == 22);
+	assert(22 == $x->bankCharge());
 
 	$y = new Type(true);
 	$x = new MoveMethodToAppropriateClass($y, 10);
-	print_r(get_class($x) . ":\n");
-	assert($x->bankCharge() == 17.05);
+	assert(17.05 == $x->bankCharge());
 echo "... done\n";

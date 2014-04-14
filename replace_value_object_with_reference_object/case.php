@@ -57,8 +57,8 @@ $orders = array(
 );
 
 echo "Start test...\n";
-	assert(numberOfOrdersFor($orders, "diana") == 1);
+	assert(1 == numberOfOrdersFor($orders, "diana"));
 	$diana->setCustomerName("camilla");
-	assert(numberOfOrdersFor($orders, "diana") == 0);
-	assert(numberOfOrdersFor($orders, "camilla") == 1);
+	assert(0 == numberOfOrdersFor($orders, "diana"));
+	assert(1 == numberOfOrdersFor($orders, "camilla"));
 echo "... done\n";

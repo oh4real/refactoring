@@ -57,5 +57,5 @@ echo "Start test...\n";
 	print_r(get_class($x) . ":\n");
 	$x->setOfficeNumber("555-1212");
 	$x->setOfficeAreaCode("512");
-	assert($x->getTelephoneNumber() == "(512) 555-1212");
+	assert("(512) 555-1212" == $x->getTelephoneNumber());
 echo "... done\n";

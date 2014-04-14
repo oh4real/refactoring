@@ -59,13 +59,13 @@ class Person {
 echo "Start test...\n";
 	$james = new Person("James", 100);
 	$james->setIsDead(true);
-	assert($james->getPensionAmount() == 175);
+	assert(175 == $james->getPensionAmount());
 	$james->setIsDead(false);
 	$james->setIsRetired(true);
-	assert($james->getPensionAmount() == 150);
+	assert(150 == $james->getPensionAmount());
 	$james->setIsRetired(false);
 	$james->setIsSeparated(true);
-	assert($james->getPensionAmount() == 50);
+	assert(50 == $james->getPensionAmount());
 	$james->setIsSeparated(false);
-	assert($james->getPensionAmount() == 100);
+	assert(100 == $james->getPensionAmount());
 echo "... done\n";

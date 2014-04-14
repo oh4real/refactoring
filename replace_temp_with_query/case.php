@@ -27,12 +27,11 @@ class ReplaceTempWithQuery {
 
 echo "Start test...\n";
 	$x = new ReplaceTempWithQuery;
-	print_r(get_class($x) . ":\n");
 	$x->setQuantity(100);
 	$x->setItemPrice(100);
-	assert($x->getPrice() == 9500);
+	assert(9500 == $x->getPrice());
 
 	$x->setQuantity(10);
 	$x->setItemPrice(10);
-	assert($x->getPrice() == 98);
+	assert(98 == $x->getPrice());
 echo "... done\n";

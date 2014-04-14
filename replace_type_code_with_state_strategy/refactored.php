@@ -100,11 +100,11 @@ class Manager extends EmployeeType{
 
 echo "Start test...\n";
 	$x = new Employee(EmployeeType::ENGINEER);
-	assert($x->getWages() == 1000);
+	assert(1000 == $x->getWages());
 
 	$x->setType(EmployeeType::SALESMAN);
-	assert($x->getWages() == 1100);
+	assert(1100 == $x->getWages());
 
 	$x->setType(EmployeeType::MANAGER);
-	assert($x->getWages() == 1010);
+	assert(1010 == $x->getWages());
 echo "... done\n";

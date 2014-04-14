@@ -36,9 +36,9 @@ echo "Start test...\n";
 	print_r(get_class($x) . ":\n");
 	$x->setQuantity(250);
 	$x->setItemPrice(10);
-	assert($x->price() == 2600);
+	assert(2600 == $x->price());
 
 	$x->setQuantity(750);
 	$x->setItemPrice(10);
-	assert($x->price() == 7475);
+	assert(7475 == $x->price());
 echo "... done\n";

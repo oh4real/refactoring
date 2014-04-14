@@ -27,11 +27,11 @@ class Investment {
 
 echo "Start test...\n";
 	$james = new Investment(100, 0.08, 36, 10000);
-	assert($james->getAdjustedCapital() == 208.33);
+	assert(208.33 == $james->getAdjustedCapital());
 	$anne = new Investment(100, 0.08, 0, 10000);
-	assert($anne->getAdjustedCapital() == 0.00);
+	assert(0.00 == $anne->getAdjustedCapital());
 	$anne = new Investment(100, 0, 36, 10000);
-	assert($anne->getAdjustedCapital() == 0.00);
+	assert(0.00 == $anne->getAdjustedCapital());
 	$anne = new Investment(0, 0.08, 36, 10000);
-	assert($anne->getAdjustedCapital() == 0.00);
+	assert(0.00 == $anne->getAdjustedCapital());
 echo "... done\n";

@@ -27,8 +27,7 @@ class SplitTempVar {
 
 echo "Start test...\n";
 	$x = new SplitTempVar;
-	print_r(get_class($x) . ":\n");
-	assert($x->getDistanceTravelled(100) == 171.5);
+	assert(171.5 == $x->getDistanceTravelled(100));
 	$x->setSecondaryForce(0);
-	assert($x->getDistanceTravelled(100) == 50);
+	assert(50 == $x->getDistanceTravelled(100));
 echo "... done\n";
