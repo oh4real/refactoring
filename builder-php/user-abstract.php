@@ -2,17 +2,10 @@
 
 abstract class Buildable {
 	protected function __construct() {}
-
-	/**
-	 *  Could define this non abstract builder() method. 
-	 *	Builder doesn't exist so you'd get a runtime error on test and force dev to Override
-	 *  
-	 *	public static function builder() {
-	 *		return new Builder(new static());
-	 *	}	
-	 *
-	 */
-	abstract public static function builder();
+	public static function builder(){
+		// Builder is not a legit class, so any subclass should fail if method not overriden
+	 	return new Builder(new static());
+	}
 }
 
 abstract class Builder {
